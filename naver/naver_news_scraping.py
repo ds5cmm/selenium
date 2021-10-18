@@ -38,6 +38,7 @@ try:
 
         # 기사url
         url_link_list = []
+        
         # 신문사url
         url_data_list = []
         url_data = driver.find_elements_by_css_selector(" .news_wrap .info_group > a")
@@ -73,7 +74,7 @@ try:
         content_row = 0
         content_data = driver.find_elements_by_css_selector(" .news_wrap .dsc_wrap .dsc_txt_wrap")           
         for k in content_data:
-            news_list[content_row][3] = k.get_attribute('innerHTML')
+            news_list[content_row][3] = k.text
             content_row += 1
         
         # 이미지 저장
@@ -97,7 +98,7 @@ print(len(theater_list))
     
 theater_df = pd.DataFrame(theater_list, columns=['신문사url', '기사타이틀', '기사url', '요약기사'])
 theater_df.index = theater_df.index + 1
-theater_df.to_csv(f'theater_df.csv', mode='w', encoding='utf-8-sig', header=True, index=True)
+theater_df.to_csv(f'./output_data/theater_news_df.csv', mode='w', encoding='utf-8-sig', header=True, index=True)
 
 print('정보수집이 완료되었습니다. 시간:', time.time() - startTime)
 

@@ -1,0 +1,54 @@
+** 뉴스 **
+- https://search.naver.com/search.naver?sm=tab_hty.top&where=news&query=%EB%89%B4%EC%8A%A4&oquery=%EB%89%B4%EC%88%98&tqi=hTi63lp0Jy0ssQbj8PZssssstgw-204106
+
+.list_news
+.box #sp_nws1
+.news_warp
+.news_area
+	.news_info
+		.info_group -> a.text 신문사URL(신문사명 DB화)
+	-> a.title : 기사타이틀
+	-> a.href : 신문사 상세기사URL
+	.news_dsc
+		.dsc_wrap -> a.text 간략기사
+
+
+** 영화 **
+- https://movie.naver.com/movie/running/current.naver?view=list&tab=normal&order=reserve
+
+.lst_detail_t1
+	.thumb ->a->img .src : 영화이미지
+.lst_dsc
+	.tit
+		.ico_rating_15<_12,_18> 관람등급
+		-> a.html : 영화명
+	.star
+		.info_star .star_1
+			.num : 평점
+			.num2 : 참여자
+		.info_exp .star_t1 .b_star .num : 예매율
+	.info_txt1
+		.link_txt -> a.html : 장르 리스트
+			.split next 상영시간
+			.split next 개봉일
+		.link_txt next -> a.html : 감독
+		.link_txt next -> a.html : 출연진
+
+예매하기, 포토보기, 예고편, 뮤직비디오, 메이킹, 인터뷰 < 네이버 연결가능 >
+
+** 드라마 **
+- https://search.naver.com/search.naver?where=nexearch&sm=top_sug.pre&fbm=0&acr=2&acq=%EB%93%9C%EB%9D%BC%EB%A7%88&qdt=0&ie=utf8&query=%EB%93%9C%EB%9D%BC%EB%A7%88
+
+** 음악 **
+- https://www.melon.com/chart/month/index.htm
+
+
+** 공연 **
+- https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=%EA%B3%B5%EC%97%B0
+
+
+** 도서(YES24) **
+- https://book.naver.com/bestsell/bestseller_list.naver?cp=yes24&cate=total&bestWeek=2021-10-2&indexCount=&type=list&page=1
+
+** 지역별 음식점 **
+- https://map.naver.com/v5/api/search?caller=pcweb&query=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%EC%9D%8C%EC%8B%9D%EC%A0%90&type=all&searchCoord=126.2166912;37.6726489&page=1&displayCount=20&isPlaceRecommendationReplace=true&lang=ko
