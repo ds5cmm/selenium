@@ -30,11 +30,11 @@ try:
     )
 
     theater_list = []
-    pageNum = 3
+    pageNum = 8
     count = 0
 
     for i in  range(1, pageNum):
-        news_col_count = 7
+        news_col_count = 8
 
         # 기사url
         url_link_list = []
@@ -60,12 +60,17 @@ try:
             if len(book_writer) == 3:
                 news_list[r][1] = f.text.split('|')[0] # 저자
                 news_list[r][3] = f.text.split('|')[1] # 출판사
-                #news_list[r][3] = f.text.split('|')[2] # 출판일
+                news_list[r][6] = f.text.split('|')[2] # 출판일
+            elif len(book_writer) == 5:
+                news_list[r][1] = f.text.split('|')[0] # 저자
+                news_list[r][2] = f.text.split('|')[1] # 번역
+                news_list[r][3] = f.text.split('|')[3] # 출판사
+                news_list[r][6] = f.text.split('|')[4] # 출판일
             else :
                 news_list[r][1] = f.text.split('|')[0] # 저자
                 news_list[r][2] = f.text.split('|')[1] # 번역
                 news_list[r][3] = f.text.split('|')[2] # 출판사
-                #news_list[r][4] = f.text.split('|')[3] # 출판일
+                news_list[r][6] = f.text.split('|')[3] # 출판일
         
         # 가격
         for r in range(1, news_total):
@@ -81,10 +86,11 @@ try:
         # 소개
         for r in range(1, news_total):
             f = driver.find_element_by_xpath("//*[@id='searchBiblioList']/li["+str(r)+"]/dl/dd[3]")
-            news_list[r][6] = f.text.replace("소개", "")
+            news_list[r][7] = f.text.replace("소개", "")
 
         for k in news_list:
-            theater_list.append(k)
+            if (k[0] != '') and (k[4] != ''):
+                theater_list.append(k)
 
         driver.find_element_by_xpath("//a[@class='next']").click()
         time.sleep(3)
@@ -97,7 +103,7 @@ finally:
 print(len(theater_list))
 
     
-theater_df = pd.DataFrame(theater_list, columns=['도서명', '저자', '번역', '출판사', '정가', '판매가격', '소개'])
+theater_df = pd.DataFrame(theater_list, columns=['도서명', '저자', '번역', '출판사', '정가', '판매가격', '출판일', '소개'])
 theater_df.index = theater_df.index + 1
 theater_df.to_csv(f'./output_data/theater_book_df.csv', mode='w', encoding='utf-8-sig', header=True, index=True)
 
