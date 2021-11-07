@@ -107,7 +107,7 @@ def get_search_post(query, display, start, sort):
 if __name__ == '__main__':
     no = 0
     # 검색어
-    query = "컴퓨터"
+    query = "오징어게임"
     # 출력건수 (1~100)
     display = 100
     start = 1
