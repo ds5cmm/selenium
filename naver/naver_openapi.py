@@ -11,8 +11,8 @@ from bs4 import BeautifulSoup
 
 headers = { "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" }
 
-client_id = 'ThEA6y6LOyfCIqhBFfZC'
-client_secret = 'YSiKwyQoqG'
+client_id = 'sGTHB6oyPvqs5mKOfj1U'
+client_secret = 'TEMhOhObdo'
 
 def get_search_count(query, display):
     query_text = urllib.parse.quote(query)
