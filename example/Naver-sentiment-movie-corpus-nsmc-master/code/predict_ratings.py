@@ -38,7 +38,7 @@ train_data.drop_duplicates(subset=['document'], inplace=True)
 # train_data에서 해당 리뷰의 긍, 부정 유무가 기재되어있는 레이블(label) 값의 분포를 보겠습니다.
 #train_data['label'].value_counts().plot(kind = 'bar')
 
-# 앞서 확인하였듯이 약 146,000개의 영화 리뷰 샘플이 존재하는데 그래프 상으로 긍정과 부정 둘 다 약 72,000개의 샘플이 존재하여 
+# 앞서 확인하였듯이 약 146,000개의  리뷰 샘플이 존재하는데 그래프 상으로 긍정과 부정 둘 다 약 72,000개의 샘플이 존재하여 
 # 레이블의 분포가 균일한 것처럼 보입니다. 
 # 정확하게 몇 개인지 확인하고 싶다면 아래의 코드를 수행하면 됩니다.
 #print(train_data.groupby('label').size().reset_index(name = 'count'))
@@ -86,7 +86,7 @@ test_data = test_data.dropna(how='any') # Null 값 제거
 stopwords = ['의','가','이','은','들','는','좀','잘','걍','과','도','를','으로','자','에','와','한','하다']
 
 okt = Okt()
-okt.morphs('와 이런 것도 영화라고 차라리 뮤직비디오를 만드는 게 나을 뻔', stem = True)
+okt.morphs('와 이런 것도 작품이라고 차라리 졸작으로 만드는 게 나을 뻔', stem = True)
 
 # 이제 train_data에 형태소 분석기를 사용하여 토큰화를 하면서 불용어를 제거하여 X_train에 저장합니다.
 X_train = []
@@ -204,5 +204,5 @@ def sentiment_predict(new_sentence):
   else:
     print("{:.2f}% 확률로 부정 리뷰입니다.\n".format((1 - score) * 100))
 
-sentiment_predict('이 영화 개꿀잼 ㅋㅋㅋ')
-sentiment_predict('감독 뭐하는 놈이냐?')
+sentiment_predict('이 작품 개꿀잼 ㅋㅋㅋ')
+
